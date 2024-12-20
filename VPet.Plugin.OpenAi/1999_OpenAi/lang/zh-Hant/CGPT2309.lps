@@ -14,13 +14,13 @@ API 链接 一般为 api.openai.com/v1/chat/completions#API連結一般為api.op
 读取最大花费Token数量 1千Token=$0.02#讀取最大花費Token數量 1千Token=$0.02:|
 聊天历史记录#對話記錄:|
 累计在此花费的Token个数 1千Token=$0.02#累計在此花費的Token個數 1千Token=$0.02:|
-请先前往设置中设置 ChatGPT API#請先前往設定中設定ChatGPT API:|
+请先前往设置中设置 OpenAi API#請先前往設定中設定OpenAi API:|
 请检查设置和网络连接#請檢查設定和網路連接:|
 请检查API token设置#請檢查API token設定:|
 API调用失败#API調用失敗:|
-打开 ChatGPT API 设置#打開ChatGPT API設定:|
+打开 OpenAi API 设置#打開OpenAi API設定:|
 发送#傳送:|
-ChatGPT API 设置#ChatGPT API設定:|
+OpenAi API 设置#OpenAi API設定:|
 初始化文本#初始化文字:|
 温度#溫度:|
 最大花费#最大花費:|

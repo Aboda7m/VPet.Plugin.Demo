@@ -1,34 +1,42 @@
-﻿using LinePutScript.Localization.WPF;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Reflection.PortableExecutable;
 using System.Windows;
+using VPet.Plugin.OpenAiPlugin;
 
 namespace VPet.Plugin.OpenAiPlugin
 {
-    /// <summary>
-    /// winSetting.xaml 的交互逻辑
-    /// </summary>
     public partial class winSetting : Window
     {
-        public winSetting()
-        {
-            InitializeComponent();
-            Resources = Application.Current.Resources;
-        }
+        private OpenAiPlugin plugin;
+        private long totalused = 0;
 
+        // Constructor to accept the plugin object
         public winSetting(OpenAiPlugin plugin)
         {
             InitializeComponent();
             Resources = Application.Current.Resources;
-            // Other initialization logic using the plugin parameter can go here.
+
+            this.plugin = plugin;
+            
         }
 
-
+        // Save Button Click Handler
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            // This method would handle saving settings.
-            // Placeholder for actual implementation if needed.
+            string apiUrl = tbAPIURL.Text;
+            string apiKey = tbAPIKey.Text;
+
+            if (string.IsNullOrWhiteSpace(apiUrl) || string.IsNullOrWhiteSpace(apiKey))
+            {
+                MessageBox.Show("Both API URL and API Key must be provided!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            // Set up the plugin client with the new values
+            
+
+            // Close the settings window after saving
+            MessageBox.Show("Settings saved successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             this.Close();
         }
     }

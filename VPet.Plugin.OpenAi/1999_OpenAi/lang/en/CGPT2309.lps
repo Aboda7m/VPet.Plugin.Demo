@@ -11,13 +11,13 @@ Ill#get sick:|
 点击初始化桌宠聊天程序#Click Initialize VPET chat program:|
 检测到模型错误,已重置桌宠聊天系统#Detected model error, Reset the VPET chat system:|
 初始化桌宠聊天程序中...#Initialize VPET chat program...:|
-请先前往设置中设置 ChatGPT API#Please go to the settings set up the ChatGPT API first:|
+请先前往设置中设置 OpenAi API#Please go to the settings set up the OpenAi API first:|
 请检查设置和网络连接#Please check your settings and network connection:|
 请检查API token设置#Please check the API token settings:|
 API调用失败#The API call failed:|
-打开 ChatGPT API 设置#Open the ChatGPT API Settings:|
+打开 OpenAi API 设置#Open the OpenAi API Settings:|
 发送#Send:|
-ChatGPT API 设置#ChatGPT API Settings:|
+OpenAi API 设置#OpenAi API Settings:|
 初始化文本#Initialization text:|
 温度#Temperature:|
 最大花费#Maximum cost:|

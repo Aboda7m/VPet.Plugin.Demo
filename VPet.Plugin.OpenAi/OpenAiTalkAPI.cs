@@ -40,10 +40,10 @@ namespace VPet.Plugin.OpenAiPlugin
 
             try
             {
-                // Create the request data
+                // Create the request data with the updated model name "Mirai:latest"
                 var requestData = new
                 {
-                    model = "gpt-3.5-turbo",  // Use the appropriate model
+                    model = "Mirai:latest",  // Updated model name
                     messages = new[] { new { role = "user", content } }
                 };
 

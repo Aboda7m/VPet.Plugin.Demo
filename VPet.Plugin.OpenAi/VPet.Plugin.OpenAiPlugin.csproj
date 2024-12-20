@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <OutputType>Library</OutputType>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWPF>true</UseWPF>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="1110_OpenAi\**" />
+    <EmbeddedResource Remove="1110_OpenAi\**" />
+    <None Remove="1110_OpenAi\**" />
+    <Page Remove="1110_OpenAi\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="icon.aseprite" />
+  </ItemGroup>
+  <ItemGroup>
+    
+    <PackageReference Include="LinePutScript" Version="1.11.8" />
+    <PackageReference Include="LinePutScript.Localization.WPF" Version="1.0.7" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.6.0-preview3.19128.7" />
+    <PackageReference Include="VPet-Simulator.Windows.Interface" Version="1.1.0.40" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+</Project>

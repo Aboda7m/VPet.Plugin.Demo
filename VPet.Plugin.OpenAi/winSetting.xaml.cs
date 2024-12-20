@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System.Reflection.PortableExecutable;
+﻿using System;
 using System.Windows;
 using VPet.Plugin.OpenAiPlugin;
 
@@ -8,7 +7,6 @@ namespace VPet.Plugin.OpenAiPlugin
     public partial class winSetting : Window
     {
         private OpenAiPlugin plugin;
-        private long totalused = 0;
 
         // Constructor to accept the plugin object
         public winSetting(OpenAiPlugin plugin)
@@ -17,7 +15,8 @@ namespace VPet.Plugin.OpenAiPlugin
             Resources = Application.Current.Resources;
 
             this.plugin = plugin;
-            
+            tbAPIURL.Text = plugin.ApiUrl;  // Pre-fill the current API URL
+            tbAPIKey.Text = plugin.ApiKey;  // Pre-fill the current API key
         }
 
         // Save Button Click Handler
@@ -32,10 +31,13 @@ namespace VPet.Plugin.OpenAiPlugin
                 return;
             }
 
-            // Set up the plugin client with the new values
-            
+            // Set the API URL and Key in the plugin
+            plugin.ApiUrl = apiUrl;
+            plugin.ApiKey = apiKey;
 
-            // Close the settings window after saving
+            // Save the settings (persist in plugin)
+            plugin.Save();
+
             MessageBox.Show("Settings saved successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             this.Close();
         }

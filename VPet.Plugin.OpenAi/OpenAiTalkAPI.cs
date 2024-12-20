@@ -19,6 +19,7 @@ namespace VPet.Plugin.OpenAiPlugin
 
         private static readonly HttpClient client = new HttpClient();
 
+        // Respond to user input by sending a request to the OpenAI API
         public override async void Responded(string content)
         {
             if (string.IsNullOrEmpty(content))
@@ -28,7 +29,6 @@ namespace VPet.Plugin.OpenAiPlugin
 
             DisplayThink();
 
-            // Retrieve API URL and key from settings
             string apiUrl = Plugin.ApiUrl;
             string apiKey = Plugin.ApiKey;
 
@@ -40,10 +40,10 @@ namespace VPet.Plugin.OpenAiPlugin
 
             try
             {
-                // Create the request data with the updated model name "Mirai:latest"
+                // Request data with model and user input
                 var requestData = new
                 {
-                    model = "Mirai:latest",  // Updated model name
+                    model = "Mirai:latest",  // Use the Mirai model or any other desired model
                     messages = new[] { new { role = "user", content } }
                 };
 
@@ -54,7 +54,7 @@ namespace VPet.Plugin.OpenAiPlugin
                 };
                 requestMessage.Headers.Add("Authorization", $"Bearer {apiKey}");
 
-                // Make the request
+                // Send the request
                 var response = await client.SendAsync(requestMessage);
                 var responseContent = await response.Content.ReadAsStringAsync();
 
@@ -62,6 +62,8 @@ namespace VPet.Plugin.OpenAiPlugin
                 {
                     var responseObject = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(responseContent);
                     string reply = responseObject.choices[0].message.content;
+
+                    // Display the reply in the chat window
                     DisplayThinkToSayRnd(reply);
                 }
                 else
@@ -74,6 +76,9 @@ namespace VPet.Plugin.OpenAiPlugin
                 DisplayThinkToSayRnd($"Error occurred: {ex.Message}");
             }
         }
+
+        // Display the response in the VPet UI
+       
 
         public override void Setting()
         {

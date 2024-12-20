@@ -10,8 +10,8 @@ namespace VPet.Plugin.OpenAiPlugin
     {
         public OpenAiPlugin(IMainWindow mainwin) : base(mainwin) { }
 
-        public string ApiUrl { get; set; }
-        public string ApiKey { get; set; }
+        public string ApiUrl { get; set; } = "http://localhost:3000/api/chat/completions";  // Default value
+        public string ApiKey { get; set; } = "sk-2e211c0f69f84cf7b9b5eff42355bdfa"; // Default value
 
         public override void LoadPlugin()
         {
@@ -44,4 +44,5 @@ namespace VPet.Plugin.OpenAiPlugin
 
         public override string PluginName => "OpenAiPlugin";
     }
+
 }

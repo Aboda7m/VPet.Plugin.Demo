@@ -19,7 +19,6 @@ namespace VPet.Plugin.OpenAiPlugin
 
         private static readonly HttpClient client = new HttpClient();
 
-        // Respond to user input by sending a request to the OpenAI API
         public override async void Responded(string content)
         {
             if (string.IsNullOrEmpty(content))
@@ -31,19 +30,20 @@ namespace VPet.Plugin.OpenAiPlugin
 
             string apiUrl = Plugin.ApiUrl;
             string apiKey = Plugin.ApiKey;
+            string modelName = Plugin.ModelName;  // Get model name from plugin settings
 
-            if (string.IsNullOrEmpty(apiUrl) || string.IsNullOrEmpty(apiKey))
+            if (string.IsNullOrEmpty(apiUrl) || string.IsNullOrEmpty(apiKey) || string.IsNullOrEmpty(modelName))
             {
-                DisplayThinkToSayRnd("Please configure the API URL and Key in settings.");
+                DisplayThinkToSayRnd("Please configure the API URL, Key, and Model name in settings.");
                 return;
             }
 
             try
             {
-                // Request data with model and user input
+                // Request data with the model and user input
                 var requestData = new
                 {
-                    model = "Mirai:latest",  // Use the Mirai model or any other desired model
+                    model = modelName,  // Use the model name from settings
                     messages = new[] { new { role = "user", content } }
                 };
 
@@ -76,9 +76,6 @@ namespace VPet.Plugin.OpenAiPlugin
                 DisplayThinkToSayRnd($"Error occurred: {ex.Message}");
             }
         }
-
-        // Display the response in the VPet UI
-       
 
         public override void Setting()
         {
